@@ -18,7 +18,7 @@ end
 def fib_huge(n, m)
   remainder = n % pisano_period(m)
 
-  fibonacci_nums = [0,1]
+  fibonacci_nums = [0, 1]
 
   i = 2
   while i <= remainder
@@ -28,6 +28,12 @@ def fib_huge(n, m)
 
   fibonacci_nums[-1] % m
 end
+
+def test(n, m)
+  [fib_huge(n,m), pisano_period(m)]
+end
+
+
 
 if __FILE__ == $0
   a, b = gets.split().map(&:to_i)
