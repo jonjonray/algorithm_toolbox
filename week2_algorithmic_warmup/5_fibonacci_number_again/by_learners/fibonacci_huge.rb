@@ -29,9 +29,6 @@ def fib_huge(n, m)
   fibonacci_nums[-1] % m
 end
 
-def test(n, m)
-  [fib_huge(n,m), pisano_period(m)]
-end
 
 
 

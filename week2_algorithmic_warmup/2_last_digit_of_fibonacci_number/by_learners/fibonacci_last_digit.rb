@@ -8,7 +8,7 @@ def fib_last_digit(n)
     fib_array.push(sum)
   end
 
-  fib_array[n]
+  fib_array[n] % 10
 end
 
 if __FILE__ == $0
