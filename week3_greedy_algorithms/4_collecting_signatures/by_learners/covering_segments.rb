@@ -5,10 +5,23 @@ Segment = Struct.new("Segment", :start, :end)
 
 def optimal_points(segments)
   points = []
+  unused = []
   return points if segments.empty?
-  #write your code here
+  low = segments.min { |a,b| a.end <=> b.end }
+  points.push(low.end)
+  segments.each do |segment|
+    unused.push(segment) if segment.start > low.end || segment.end < low.start
+  end
+
+  points.concat(optimal_points(unused))
   points
 end
+
+a = Segment.new(4, 7)
+b = Segment.new(1, 3)
+c = Segment.new(2, 5)
+d = Segment.new(5, 6)
+
 
 if __FILE__ == $0
   data = STDIN.read.split().map(&:to_i)

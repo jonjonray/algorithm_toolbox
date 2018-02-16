@@ -3,9 +3,24 @@
 
 def get_optimal_value(capacity, weights, values)
   value = 0.0
-  # write your code here
+  current_capacity = capacity
+  per_unit = weights.map.with_index do |weight, i|
+    [values[i].to_f / weight.to_f, weight, values[i]]
+  end
+  per_unit.sort! {|a,b| b[0] <=> a[0]}
+
+  per_unit.each do |mapping|
+    if current_capacity >= mapping[1]
+      value+= mapping[2].to_f
+      current_capacity-= mapping[1]
+    elsif current_capacity != 0
+      value += current_capacity.to_f * mapping[0].to_f
+    end
+  end
+
   value
 end
+
 
 if __FILE__ == $0
   data = STDIN.read.split().map(&:to_i)
