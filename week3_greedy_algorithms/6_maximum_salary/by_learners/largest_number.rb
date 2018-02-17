@@ -2,7 +2,7 @@
 # by Andronik Ordian
 
 def largest_number(a)
-  # write your code here
+  
   a.join('')
 end
 

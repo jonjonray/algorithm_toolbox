@@ -2,8 +2,18 @@
 # by Andronik Ordian
 
 def optimal_summands(n)
-  summands = []
-  #write your code here
+  summands = [1]
+  return [n] if n <= 2
+  current = n - 1
+  while current > 0
+    if current - (summands[-1] + 1) <= summands[-1] + 1
+      summands.push(current)
+      current = 0
+    else
+      current-= summands[-1] + 1
+      summands.push(summands[-1] + 1)
+    end
+  end
   summands
 end
 

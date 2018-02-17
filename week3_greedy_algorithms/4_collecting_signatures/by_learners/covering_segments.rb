@@ -17,10 +17,6 @@ def optimal_points(segments)
   points
 end
 
-a = Segment.new(4, 7)
-b = Segment.new(1, 3)
-c = Segment.new(2, 5)
-d = Segment.new(5, 6)
 
 
 if __FILE__ == $0
