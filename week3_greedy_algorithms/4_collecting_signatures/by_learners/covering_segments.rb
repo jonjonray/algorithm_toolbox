@@ -18,7 +18,6 @@ def optimal_points(segments)
 end
 
 
-
 if __FILE__ == $0
   data = STDIN.read.split().map(&:to_i)
   n = data[0]
