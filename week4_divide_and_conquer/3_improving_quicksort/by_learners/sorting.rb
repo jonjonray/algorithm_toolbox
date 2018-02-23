@@ -2,8 +2,16 @@
 # by Andronik Ordian
 
 def partition3(a, l, r)
-  #write your code here
-
+  x = a[l]
+  j = l
+  (l + 1..r).each do |i|
+    if a[i] <= x
+      j += 1
+      a[i], a[j] = a[j], a[i]
+    end
+  end
+  a[l], a[j] = a[j], a[l]
+  j
 end
 
 def partition2(a, l, r)

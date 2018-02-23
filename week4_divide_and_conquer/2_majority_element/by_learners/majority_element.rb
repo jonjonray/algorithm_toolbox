@@ -5,7 +5,7 @@ def get_majority_element(a, left, right)
   return -1 if left >= right
   return a[left] if right - left == 1
 
-  # write your code here
+  
   -1
 end
 
