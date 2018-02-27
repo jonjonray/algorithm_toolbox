@@ -2,21 +2,22 @@
 # by Andronik Ordian
 
 def get_majority_element(a, left, right)
-  return -1 if left >= right
-  return a[left] if right - left == 1
+  return a[left] if right - left <= 1
 
-  left_recur = get_majority_element(a, left, (left - right) / 2)
-  right_recur = get_majority_element(a, ((left - right) / 2) + 1, right)
+  mid = left + ((right - left) / 2)
 
-  if left_recur == right_recur
-    return left_recur
-  elsif left_recur != -1 && right_recur == -1
-    a[(left - right) / 2 + 1..right].each do |int|
-      return left_recur if int == left_recur
+  left_r = get_majority_element(a, left, mid)
+  right_r = get_majority_element(a, mid + 1, right)
+
+  if left_r == right_r && left_r != -1
+    return left_r
+  elsif left_r != -1 && right_r == -1
+    a[mid + 1..right].each do |int|
+      return left_r if int == left_r
     end
-  elsif right_recur != -1 && left_recur == -1
-    a[left..(left - right) / 2].each do |int|
-      return right_recur if int == right_recur
+  elsif left_r == -1 && right_r != -1
+    a[left..mid].each do |int|
+      return right_r if int == right_r
     end
   end
   -1
